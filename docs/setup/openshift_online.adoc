@@ -1,0 +1,4 @@
+=== OpenShift Online
+
+NOTE: https://github.com/tdiesler/obsidian/issues/6[[#6\] How to setup OpenShift Local]
+

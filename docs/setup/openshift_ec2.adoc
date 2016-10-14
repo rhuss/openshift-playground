@@ -1,0 +1,4 @@
+=== OpenShift on EC2
+
+NOTE: https://github.com/tdiesler/obsidian/issues/7[[#7\] How to setup OpenShift on EC2]
+

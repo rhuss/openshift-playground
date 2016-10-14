@@ -1,0 +1,12 @@
+=== Swarm
+
+==== Generate & Deploy a Swarm Application
+
+NOTE: https://github.com/tdiesler/obsidian/issues/2[[#2\] Generate and deploy Swarm app]
+
+==== Generator for Swarm Applications
+
+NOTE: https://github.com/tdiesler/obsidian/issues/12[[#12\] Web based project generator for WildFly]
+
+
+

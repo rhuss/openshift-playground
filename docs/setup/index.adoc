@@ -1,0 +1,7 @@
+== Obsidian Setup
+
+include::openshift_local.adoc[]
+
+include::openshift_online.adoc[]
+
+include::openshift_ec2.adoc[]

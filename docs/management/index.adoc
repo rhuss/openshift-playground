@@ -1,0 +1,13 @@
+== Obsidian Management
+
+=== Application Metrix using Hawkular
+
+NOTE: https://github.com/tdiesler/obsidian/issues/26[[#26\] Application metrix using Hawkular
+
+=== Eureka and Hystrix Dashboard
+
+NOTE: https://github.com/tdiesler/obsidian/issues/28[[#28\] Certify Eureka and Hystrix Dashboard on OpenShift 
+
+=== Kibana Dashboard to view logs
+
+NOTE: https://github.com/tdiesler/obsidian/issues/31[[#31\] Provide Kibana dashboard to view log files

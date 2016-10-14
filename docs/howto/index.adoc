@@ -1,0 +1,69 @@
+== Obsidian HOWTOs
+
+=== Update the Environment
+
+NOTE: https://github.com/tdiesler/obsidian/issues/35[[#35\] How to upgrade an Obsidian environment]
+
+=== Server Side Load Balancing
+
+NOTE: https://github.com/tdiesler/obsidian/issues/8[[#8\] OpenShift (server-side) load balancing must be supported]
+
+=== Log Aggregation
+
+NOTE: https://github.com/tdiesler/obsidian/issues/9[[#9\] Support OpenShift Logging (EFK)]
+
+=== Service Discovery
+
+NOTE: https://github.com/tdiesler/obsidian/issues/14[[#14\] How to setup service discovery on OpenShift]
+
+=== Single Sign On (SSO)
+
+NOTE: https://github.com/tdiesler/obsidian/issues/15[[#15\] How to setup SSO for service authentication]
+
+=== Integrate with an Puplic-Key-Infrastructure (PKI)
+
+NOTE: https://github.com/tdiesler/obsidian/issues/34[[#34\] How to integrate with an existing PKI Infrastructure]
+
+=== Private Nexus Instance 
+
+NOTE: https://github.com/tdiesler/obsidian/issues/16[[#16\] How to connect to a user Nexus instance]
+
+=== Private Docker Registry 
+
+NOTE: https://github.com/tdiesler/obsidian/issues/17[[#17\] How to connect to a user Docker registry]
+
+=== Access to external LDAP Service 
+
+NOTE: https://github.com/tdiesler/obsidian/issues/21[[#21\] How to access external LDAP service]
+
+=== Access to external Database Service 
+
+NOTE: https://github.com/tdiesler/obsidian/issues/22[[#22\] How to access external Database service]
+
+=== Deploy a CI/CD pipeline  
+
+NOTE: https://github.com/tdiesler/obsidian/issues/23[[#23\] How to deploy a CI/CD pipeline]
+
+=== Launch a CI/CD pipeline from CLI
+
+NOTE: https://github.com/tdiesler/obsidian/issues/29[[#29\] How to launch CI/CD pipeline from the command line]
+
+=== Provide a custom CI/CD pipeline
+
+NOTE: https://github.com/tdiesler/obsidian/issues/33[[#33\] How to provide custom CI/CD pipeline]
+
+=== Distributed Performance Tracing 
+
+NOTE: https://github.com/tdiesler/obsidian/issues/18[[#18\] Distributed tracing for monitoring performance across services]
+
+=== Publishing Services on 3Scale & APIMan 
+
+NOTE: https://github.com/tdiesler/obsidian/issues/19[[#19\] Publish services in 3Scale & APIMan]
+
+=== Decomposing JavaEE Applications
+
+NOTE: https://github.com/tdiesler/obsidian/issues/20[[#20\] How to bring existing J2EE apps to OpenShift]
+
+=== Netflix Hystrix with WildFly Swarm
+
+NOTE: https://github.com/tdiesler/obsidian/issues/27[[#27\] Certify Netflix Hystrix with WildFly Swarm]

@@ -1,0 +1,10 @@
+=== WildFly
+
+==== Generate & Deploy a WildFly Application
+
+NOTE: https://github.com/tdiesler/obsidian/issues/1[[#1\] Generate and deploy WildFly standalone app]
+
+==== Generator for WildFly Applications
+
+NOTE: https://github.com/tdiesler/obsidian/issues/11[[#11\] Web based project generator for WildFly]
+
