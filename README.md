@@ -6,8 +6,10 @@ Obsidian platform supports cloud first development on RedHat OpenShift.
 
 The docs are generated using [Asciidoctor](http://asciidoctor.org/docs). 
 
+* [Obsidian User Guide](http://tdiesler.github.io/obsidian)
+
 To generate an update of the docs use:
 
 ```
-$ asciidoctor -D docs/target docs/user_guide.adoc 
+$ asciidoctor -D . docs/index.adoc 
 ```
