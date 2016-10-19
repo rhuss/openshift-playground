@@ -1,7 +1,15 @@
 === OpenShift on EC2
 
-NOTE: https://github.com/tdiesler/obsidian/issues/7[[#7\] How to setup OpenShift on EC2]
+NOTE: https://github.com/tdiesler/obsidian/issues/7[[#7\] How to setup OpenShift on EC2] (done)
+
+==== OpenShift V3 Test Drive
+
+The https://engage.redhat.com/openshift-test-drive-20151001[OpenShift V3 Test Drive,window=_blank] on Amazon Web Services (AWS) provides a free, hands-on experience. 
+You'll be able to explore the features and simplicity of the product in real-time. 
+It's a quick and easy way to test OpenShift's functionality in less than an hour.
+
+
+==== OpenShift V3 Installation
 
 OpenShift https://docs.openshift.com/enterprise/3.1/architecture/infrastructure_components/kubernetes_infrastructure.html#architecture-infrastructure-components-kubernetes-infrastructure[infrastructure components,window=_blank] 
-can be installed across multiple hosts. Following https://docs.openshift.com/enterprise/3.1/install_config/install/prerequisites.html[these instructions] to prepare your environment and hosts before installing OpenShift.
-
+can be installed across multiple hosts. Following https://docs.openshift.com/enterprise/3.1/install_config/install/prerequisites.html[these instructions,window=_blank] to prepare your environment and hosts before installing OpenShift.
