@@ -1,7 +1,5 @@
 === OpenShift Local
 
-NOTE: https://github.com/tdiesler/obsidian/issues/5[[#5\] How to setup OpenShift Local] (done)
-
 Follow the instructions on https://www.openshift.org[Try Origin,window=_blank]. We use the https://www.openshift.org/vm[all-in-one VM,window=_blank] approach through a Vagrant VirtualBox VM
 
 After you have installed Vagrant and VirtualBox, run:

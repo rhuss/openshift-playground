@@ -1,7 +1,5 @@
 === OpenShift on EC2
 
-NOTE: https://github.com/tdiesler/obsidian/issues/7[[#7\] How to setup OpenShift on EC2] (done)
-
 ==== OpenShift V3 Test Drive
 
 The https://engage.redhat.com/openshift-test-drive-20151001[OpenShift V3 Test Drive,window=_blank] on Amazon Web Services (AWS) provides a free, hands-on experience. 
