@@ -2,7 +2,7 @@
 
 NOTE: https://github.com/tdiesler/obsidian/issues/5[[#5\] How to setup OpenShift Local] (Done)
 
-Follow the instructions on https://www.openshift.org[Try Origin]. We use the https://www.openshift.org/vm[all-in-one VM] approach through a Vagrant VirtualBox VM
+Follow the instructions on https://www.openshift.org[Try Origin,window=_blank]. We use the https://www.openshift.org/vm[all-in-one VM,window=_blank] approach through a Vagrant VirtualBox VM
 
 After you have installed Vagrant and VirtualBox, run:
 
@@ -14,7 +14,7 @@ Successfully started and provisioned VM with 2 cores and 5 G of memory.
 To modify the number of cores and/or available memory modify your local Vagrantfile
 ----
 
-You can now access the OpenShift console on: https://10.2.2.2:8443/console
+You can now access the OpenShift console on: https://10.2.2.2:8443/console[https://10.2.2.2:8443/console,window=_blank]
 
 Configured users are:
 
@@ -28,5 +28,5 @@ a new user.
 
 ==== Client Tools
 
-The client tools are available https://10.2.2.2:8443/console/command-line[from the console].
+The client tools are available https://10.2.2.2:8443/console/command-line[from the console,window=_blank].
 

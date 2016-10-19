@@ -1,6 +1,7 @@
 = Obsidian User Guide
 :toc: left
 :sectnums:
+:linkattrs:
 
 include::setup/index.adoc[]
 

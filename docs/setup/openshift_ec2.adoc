@@ -2,3 +2,6 @@
 
 NOTE: https://github.com/tdiesler/obsidian/issues/7[[#7\] How to setup OpenShift on EC2]
 
+OpenShift https://docs.openshift.com/enterprise/3.1/architecture/infrastructure_components/kubernetes_infrastructure.html#architecture-infrastructure-components-kubernetes-infrastructure[infrastructure components,window=_blank] 
+can be installed across multiple hosts. Following https://docs.openshift.com/enterprise/3.1/install_config/install/prerequisites.html[these instructions] to prepare your environment and hosts before installing OpenShift.
+
