@@ -23,7 +23,10 @@ Vagrant.configure(2) do |config|
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
-
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 8443, host: 8443
+  config.vm.network "forwarded_port", guest: 2375, host: 2375
+  
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
   # config.vm.network "private_network", ip: "192.168.33.10"
@@ -68,4 +71,21 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+  
+docker_config = <<EOF
+  if ! grep 2375 /etc/sysconfig/docker > /dev/null || ! grep docker.sock /etc/sysconfig/docker > /dev/null; then
+    echo "Modifying /etc/sysconfig/docker"
+    sed -i "s/^OPTIONS.*/OPTIONS=\\'--selinux-enabled --storage-opt dm.loopdatasize=30G -H tcp:\\/\\/0.0.0.0:2375 -H unix:\\/\\/\\/var\\/run\\/docker.sock\\'/g" /etc/sysconfig/docker
+    echo "Restarting docker"
+    systemctl restart docker
+  fi
+EOF
+	
+  config.vm.provision :shell, :privileged => true, :inline => docker_config
+
+  config.vm.provider "virtualbox" do |vb|
+     vb.memory = "4096"
+     vb.cpus = 2
+  end
+  
 end

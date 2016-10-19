@@ -497,11 +497,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>$ vagrant init openshift/origin-all-in-one
+<pre class="highlight"><code>$ vagrant init openshift/origin-all-in-one
 $ vagrant up --provider=virtualbox
 ...
 Successfully started and provisioned VM with 2 cores and 5 G of memory.
-To modify the number of cores and/or available memory modify your local Vagrantfile</pre>
+To modify the number of cores and/or available memory modify your local Vagrantfile</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -512,18 +512,76 @@ To modify the number of cores and/or available memory modify your local Vagrantf
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>admin/admin
-user/user</pre>
+<pre class="highlight"><code>admin/admin
+user/user</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>But, you can also use any username and password combination you would like to create
-a new user.</p>
+<p>This should now allow you to ssh into the VM</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ vagrant ssh
+Last login: Mon Feb  8 09:06:26 2016 from 10.0.2.2</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and use the OpenShift command line client.</p>
 </div>
 <div class="sect3">
 <h4 id="_client_tools">1.1.1. Client Tools</h4>
 <div class="paragraph">
 <p>The client tools are available <a href="https://10.2.2.2:8443/console/command-line" target="_blank">from the console</a>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_docker_access">1.1.2. Docker access</h4>
+<div class="paragraph">
+<p>The docker deamon running in the Vagrant VM needs be exposed on the network.
+Add these deamon options to the original OpenShift docker config.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>[vagrant@localhost ~]$ sudo vi /etc/sysconfig/docker
+# Additional startup options for the Docker daemon
+OPTIONS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then restart the docker deamon</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>[vagrant@localhost ~]$ sudo systemctl restart docker</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On you local machine, setup route to the Vagrant VM</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>$ sudo cat /etc/hosts
+10.2.2.2    origin</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and a few Docker related environment variables for the project maven build</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>export DOCKER_HOST=tcp://origin:2375
+export DOCKER_IP=origin</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Port forwarding must be enabled in the Vagrantfile.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 8443, host: 8443
+  config.vm.network "forwarded_port", guest: 2375, host: 2375</code></pre>
+</div>
 </div>
 </div>
 </div>
