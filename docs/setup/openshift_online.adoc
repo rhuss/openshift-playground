@@ -2,3 +2,5 @@
 
 NOTE: https://github.com/tdiesler/obsidian/issues/6[[#6\] How to setup OpenShift Local]
 
+Access to the OpenShift Online (Next Gen) Developer Preview is limited. 
+https://www.openshift.com/devpreview/register.html[Sign up for free], to gain access as soon as resources become available.
