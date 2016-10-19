@@ -2,13 +2,13 @@
 
 === Source to Image
 
-NOTE: https://github.com/tdiesler/obsidian/issues/25[[#25\] Document source to image programming model
+NOTE: https://github.com/tdiesler/obsidian/issues/25[[#25\] Document source to image programming model]
 
 === Testing Framework
 
-NOTE: https://github.com/tdiesler/obsidian/issues/30[[#30\] How to use the OpenShift testing framework
+NOTE: https://github.com/tdiesler/obsidian/issues/30[[#30\] How to use the OpenShift testing framework]
 
 === Patching Applications
 
-NOTE: https://github.com/tdiesler/obsidian/issues/32[[#32\] How to patch apps running on OpenShift
+NOTE: https://github.com/tdiesler/obsidian/issues/32[[#32\] How to patch apps running on OpenShift]
 
