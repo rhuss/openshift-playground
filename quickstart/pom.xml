@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   #%L
-  Obsidian
+  OpenShift Playground
   %%
   Copyright (C) 2013 - 2014 RedHat
   %%
@@ -24,16 +24,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-      <groupId>com.redhat.obsidian</groupId>
-      <artifactId>obsidian</artifactId>
+      <groupId>org.wildfly.camel.openshift</groupId>
+      <artifactId>openshift-playground</artifactId>
       <version>1.0.0-SNAPSHOT</version>
     </parent>
     
-    <groupId>com.redhat.obsidian.quickstart</groupId>
-    <artifactId>quickstart</artifactId>
+    <groupId>org.wildfly.camel.openshift.quickstart</groupId>
+    <artifactId>quickstart-parent</artifactId>
     <packaging>pom</packaging>
 
-    <name>Obsidian :: Quickstart</name>
+    <name>Quickstart</name>
 
     <modules>
       <module>swarm</module>

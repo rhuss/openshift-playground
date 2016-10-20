@@ -1,6 +1,6 @@
-== Obsidian Tools
+== Application Tooling
 
 === Maven Plugin
 
-NOTE: https://github.com/tdiesler/obsidian/issues/24[[#24\] Maven plugin for build, deploy, debug on OpenShift]
+NOTE: https://github.com/tdiesler/openshift-playground/issues/24[[#24\] Maven plugin for build, deploy, debug on OpenShift]
 

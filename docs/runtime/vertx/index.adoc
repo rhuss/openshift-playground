@@ -2,11 +2,11 @@
 
 ==== Generate & Deploy a Vert.x Application
 
-NOTE: https://github.com/tdiesler/obsidian/issues/4[[#4\] Generate and deploy Vert.x app]
+NOTE: https://github.com/tdiesler/openshift-playground/issues/4[[#4\] Generate and deploy Vert.x app]
 
 ==== Generator for Vert.x Applications
 
-NOTE: https://github.com/tdiesler/obsidian/issues/13[[#13\] Web based project generator for Vert.x]
+NOTE: https://github.com/tdiesler/openshift-playground/issues/13[[#13\] Web based project generator for Vert.x]
 
 
 

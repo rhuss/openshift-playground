@@ -1,4 +1,4 @@
-== Obsidian Runtimes
+== Runtimes
 
 include::wildfly/index.adoc[]
 

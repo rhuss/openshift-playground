@@ -1,12 +1,12 @@
-# Obsidian
+# OpenShift Playground
 
-Obsidian platform supports cloud first development on RedHat OpenShift.
+Investigates cloud first development on OpenShift.
 
 ## Documentation
 
 The docs are generated using [Asciidoctor](http://asciidoctor.org/docs). 
 
-* [Obsidian User Guide](http://tdiesler.github.io/obsidian)
+* [User Guide](http://tdiesler.github.io/openshift-playground)
 
 To generate an update of the docs use:
 

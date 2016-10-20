@@ -1,4 +1,4 @@
-== Obsidian Setup
+== OpenShift Setup
 
 include::openshift_local.adoc[]
 

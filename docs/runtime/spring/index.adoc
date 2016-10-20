@@ -2,8 +2,8 @@
 
 ==== Supported Features
 
-NOTE: https://github.com/tdiesler/obsidian/issues/10[[#10\] Define list of supported Spring Boot features]
+NOTE: https://github.com/tdiesler/openshift-playground/issues/10[[#10\] Define list of supported Spring Boot features]
 
 ==== Generate & Deploy a Spring Boot Application
 
-NOTE: https://github.com/tdiesler/obsidian/issues/3[[#3\] Generate and deploy Spring Boot app]
+NOTE: https://github.com/tdiesler/openshift-playground/issues/3[[#3\] Generate and deploy Spring Boot app]

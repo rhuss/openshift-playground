@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   #%L
-  Obsidian
+  OpenShift Playground
   %%
   Copyright (C) 2013 - 2014 RedHat
   %%
@@ -23,22 +23,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.redhat.obsidian</groupId>
-    <artifactId>obsidian</artifactId>
+    <groupId>org.wildfly.camel.openshift</groupId>
+    <artifactId>openshift-playground</artifactId>
     <packaging>pom</packaging>
 
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>Obsidian</name>
-    <description>Obsidian</description>
+    <name>OpenShift Playground</name>
+    <description>OpenShift Playground</description>
     
-    <url>https://github.com/tdiesler/obsidian</url>
+    <url>https://github.com/tdiesler/openshift-playground</url>
 
     <!-- Source Control -->
     <scm>
-        <connection>scm:git:https://github.com/tdiesler/obsidian.git</connection>
-        <developerConnection>scm:git:https://github.com/tdiesler/obsidian.git</developerConnection>
-        <url>http://github.com/tdiesler/obsidian</url>
+        <connection>scm:git:https://github.com/tdiesler/openshift-playground.git</connection>
+        <developerConnection>scm:git:https://github.com/tdiesler/openshift-playground.git</developerConnection>
+        <url>http://github.com/tdiesler/openshift-playground</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -164,7 +164,7 @@
     <!-- Developers -->
     <developers>
         <developer>
-            <name>Obsidian Committers</name>
+            <name>Playground Committers</name>
         </developer>
     </developers>
 
@@ -185,7 +185,7 @@
     <!-- Issue Management -->
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/tdiesler/obsidian/issues</url>
+        <url>https://github.com/tdiesler/openshift-playground/issues</url>
     </issueManagement>
     
     <!-- Repositories -->

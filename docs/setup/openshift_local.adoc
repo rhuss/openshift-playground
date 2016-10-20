@@ -37,7 +37,7 @@ The client tools are available https://10.2.2.2:8443/console/command-line[from t
 ==== Docker access 
 
 The docker deamon running in the Vagrant VM needs be exposed on the network. 
-The easiest way to do this is to use the provided https://github.com/tdiesler/obsidian/blob/master/Vagrantfile[Vagrantfile,window=_blank].
+The easiest way to do this is to use the provided https://github.com/tdiesler/openshift-playground/blob/master/Vagrantfile[Vagrantfile,window=_blank].
 
 The provided Vagrantfile adds port forwarding, a few docker deamon options and restarts the docker deamon.
 

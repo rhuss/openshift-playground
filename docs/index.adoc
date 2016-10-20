@@ -1,4 +1,4 @@
-= Obsidian User Guide
+= User Guide
 :toc: left
 :icons: font
 :linkattrs:

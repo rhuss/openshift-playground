@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.5">
-<title>Obsidian User Guide</title>
+<title>User Guide</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -421,25 +421,25 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Obsidian User Guide</h1>
+<h1>User Guide</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_obsidian_setup">1. Obsidian Setup</a>
+<li><a href="#_openshift_setup">1. OpenShift Setup</a>
 <ul class="sectlevel2">
 <li><a href="#_openshift_local">1.1. OpenShift Local</a></li>
 <li><a href="#_openshift_online">1.2. OpenShift Online</a></li>
 <li><a href="#_openshift_on_ec2">1.3. OpenShift on EC2</a></li>
 </ul>
 </li>
-<li><a href="#_obsidian_programming_models">2. Obsidian Programming Models</a>
+<li><a href="#_openshift_programming_models">2. OpenShift Programming Models</a>
 <ul class="sectlevel2">
 <li><a href="#_source_to_image">2.1. Source to Image</a></li>
 <li><a href="#_testing_framework">2.2. Testing Framework</a></li>
 <li><a href="#_patching_applications">2.3. Patching Applications</a></li>
 </ul>
 </li>
-<li><a href="#_obsidian_runtimes">3. Obsidian Runtimes</a>
+<li><a href="#_runtimes">3. Runtimes</a>
 <ul class="sectlevel2">
 <li><a href="#_wildfly">3.1. WildFly</a></li>
 <li><a href="#_swarm">3.2. Swarm</a></li>
@@ -447,7 +447,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_spring_boot">3.4. Spring Boot</a></li>
 </ul>
 </li>
-<li><a href="#_obsidian_howtos">4. Obsidian HOWTOs</a>
+<li><a href="#_openshift_howtos">4. OpenShift HOWTOs</a>
 <ul class="sectlevel2">
 <li><a href="#_update_the_environment">4.1. Update the Environment</a></li>
 <li><a href="#_server_side_load_balancing">4.2. Server Side Load Balancing</a></li>
@@ -468,14 +468,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_netflix_hystrix_with_wildfly_swarm">4.17. Netflix Hystrix with WildFly Swarm</a></li>
 </ul>
 </li>
-<li><a href="#_obsidian_management">5. Obsidian Management</a>
+<li><a href="#_application_management">5. Application Management</a>
 <ul class="sectlevel2">
 <li><a href="#_application_metrix_using_hawkular">5.1. Application Metrix using Hawkular</a></li>
 <li><a href="#_eureka_and_hystrix_dashboard">5.2. Eureka and Hystrix Dashboard</a></li>
 <li><a href="#_kibana_dashboard_to_view_logs">5.3. Kibana Dashboard to view logs</a></li>
 </ul>
 </li>
-<li><a href="#_obsidian_tools">6. Obsidian Tools</a>
+<li><a href="#_application_tooling">6. Application Tooling</a>
 <ul class="sectlevel2">
 <li><a href="#_maven_plugin">6.1. Maven Plugin</a></li>
 </ul>
@@ -485,7 +485,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_obsidian_setup">1. Obsidian Setup</h2>
+<h2 id="_openshift_setup">1. OpenShift Setup</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_openshift_local">1.1. OpenShift Local</h3>
@@ -538,7 +538,7 @@ Last login: Mon Feb  8 09:06:26 2016 from 10.0.2.2</code></pre>
 <h4 id="_docker_access">1.1.2. Docker access</h4>
 <div class="paragraph">
 <p>The docker deamon running in the Vagrant VM needs be exposed on the network.
-The easiest way to do this is to use the provided <a href="https://github.com/tdiesler/obsidian/blob/master/Vagrantfile" target="_blank">Vagrantfile</a>.</p>
+The easiest way to do this is to use the provided <a href="https://github.com/tdiesler/openshift-playground/blob/master/Vagrantfile" target="_blank">Vagrantfile</a>.</p>
 </div>
 <div class="paragraph">
 <p>The provided Vagrantfile adds port forwarding, a few docker deamon options and restarts the docker deamon.</p>
@@ -610,7 +610,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect1">
-<h2 id="_obsidian_programming_models">2. Obsidian Programming Models</h2>
+<h2 id="_openshift_programming_models">2. OpenShift Programming Models</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_source_to_image">2.1. Source to Image</h3>
@@ -621,7 +621,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/25">[#25] Document source to image programming model</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/25">[#25] Document source to image programming model</a>
 </td>
 </tr>
 </table>
@@ -636,7 +636,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/30">[#30] How to use the OpenShift testing framework</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/30">[#30] How to use the OpenShift testing framework</a>
 </td>
 </tr>
 </table>
@@ -651,7 +651,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/32">[#32] How to patch apps running on OpenShift</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/32">[#32] How to patch apps running on OpenShift</a>
 </td>
 </tr>
 </table>
@@ -660,7 +660,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect1">
-<h2 id="_obsidian_runtimes">3. Obsidian Runtimes</h2>
+<h2 id="_runtimes">3. Runtimes</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_wildfly">3.1. WildFly</h3>
@@ -673,7 +673,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/1">[#1] Generate and deploy WildFly standalone app</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/1">[#1] Generate and deploy WildFly standalone app</a>
 </td>
 </tr>
 </table>
@@ -688,7 +688,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/11">[#11] Web based project generator for WildFly</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/11">[#11] Web based project generator for WildFly</a>
 </td>
 </tr>
 </table>
@@ -706,7 +706,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/2">[#2] Generate and deploy Swarm app</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/2">[#2] Generate and deploy Swarm app</a>
 </td>
 </tr>
 </table>
@@ -721,7 +721,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/12">[#12] Web based project generator for WildFly</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/12">[#12] Web based project generator for WildFly</a>
 </td>
 </tr>
 </table>
@@ -739,7 +739,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/4">[#4] Generate and deploy Vert.x app</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/4">[#4] Generate and deploy Vert.x app</a>
 </td>
 </tr>
 </table>
@@ -754,7 +754,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/13">[#13] Web based project generator for Vert.x</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/13">[#13] Web based project generator for Vert.x</a>
 </td>
 </tr>
 </table>
@@ -772,7 +772,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/10">[#10] Define list of supported Spring Boot features</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/10">[#10] Define list of supported Spring Boot features</a>
 </td>
 </tr>
 </table>
@@ -787,7 +787,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/3">[#3] Generate and deploy Spring Boot app</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/3">[#3] Generate and deploy Spring Boot app</a>
 </td>
 </tr>
 </table>
@@ -797,7 +797,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect1">
-<h2 id="_obsidian_howtos">4. Obsidian HOWTOs</h2>
+<h2 id="_openshift_howtos">4. OpenShift HOWTOs</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_update_the_environment">4.1. Update the Environment</h3>
@@ -808,7 +808,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/35">[#35] How to upgrade an Obsidian environment</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/35">[#35] How to upgrade an OpenShift environment</a>
 </td>
 </tr>
 </table>
@@ -823,7 +823,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/8">[#8] OpenShift (server-side) load balancing must be supported</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/8">[#8] OpenShift (server-side) load balancing must be supported</a>
 </td>
 </tr>
 </table>
@@ -838,7 +838,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/9">[#9] Support OpenShift Logging (EFK)</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/9">[#9] Support OpenShift Logging (EFK)</a>
 </td>
 </tr>
 </table>
@@ -853,7 +853,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/14">[#14] How to setup service discovery on OpenShift</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/14">[#14] How to setup service discovery on OpenShift</a>
 </td>
 </tr>
 </table>
@@ -868,7 +868,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/15">[#15] How to setup SSO for service authentication</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/15">[#15] How to setup SSO for service authentication</a>
 </td>
 </tr>
 </table>
@@ -883,7 +883,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/34">[#34] How to integrate with an existing PKI Infrastructure</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/34">[#34] How to integrate with an existing PKI Infrastructure</a>
 </td>
 </tr>
 </table>
@@ -898,7 +898,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/16">[#16] How to connect to a user Nexus instance</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/16">[#16] How to connect to a user Nexus instance</a>
 </td>
 </tr>
 </table>
@@ -913,7 +913,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/17">[#17] How to connect to a user Docker registry</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/17">[#17] How to connect to a user Docker registry</a>
 </td>
 </tr>
 </table>
@@ -928,7 +928,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/21">[#21] How to access external LDAP service</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/21">[#21] How to access external LDAP service</a>
 </td>
 </tr>
 </table>
@@ -943,7 +943,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/22">[#22] How to access external Database service</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/22">[#22] How to access external Database service</a>
 </td>
 </tr>
 </table>
@@ -958,7 +958,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/23">[#23] How to deploy a CI/CD pipeline</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/23">[#23] How to deploy a CI/CD pipeline</a>
 </td>
 </tr>
 </table>
@@ -973,7 +973,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/29">[#29] How to launch CI/CD pipeline from the command line</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/29">[#29] How to launch CI/CD pipeline from the command line</a>
 </td>
 </tr>
 </table>
@@ -988,7 +988,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/33">[#33] How to provide custom CI/CD pipeline</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/33">[#33] How to provide custom CI/CD pipeline</a>
 </td>
 </tr>
 </table>
@@ -1003,7 +1003,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/18">[#18] Distributed tracing for monitoring performance across services</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/18">[#18] Distributed tracing for monitoring performance across services</a>
 </td>
 </tr>
 </table>
@@ -1018,7 +1018,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/19">[#19] Publish services in 3Scale &amp; APIMan</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/19">[#19] Publish services in 3Scale &amp; APIMan</a>
 </td>
 </tr>
 </table>
@@ -1033,7 +1033,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/20">[#20] How to bring existing J2EE apps to OpenShift</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/20">[#20] How to bring existing J2EE apps to OpenShift</a>
 </td>
 </tr>
 </table>
@@ -1048,7 +1048,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/27">[#27] Certify Netflix Hystrix with WildFly Swarm</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/27">[#27] Certify Netflix Hystrix with WildFly Swarm</a>
 </td>
 </tr>
 </table>
@@ -1057,7 +1057,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect1">
-<h2 id="_obsidian_management">5. Obsidian Management</h2>
+<h2 id="_application_management">5. Application Management</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_application_metrix_using_hawkular">5.1. Application Metrix using Hawkular</h3>
@@ -1068,7 +1068,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/26">[#26] Application metrix using Hawkular</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/26">[#26] Application metrix using Hawkular</a>
 </td>
 </tr>
 </table>
@@ -1083,7 +1083,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/28">[#28] Certify Eureka and Hystrix Dashboard on OpenShift</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/28">[#28] Certify Eureka and Hystrix Dashboard on OpenShift</a>
 </td>
 </tr>
 </table>
@@ -1098,7 +1098,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/31">[#31] Provide Kibana dashboard to view log files</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/31">[#31] Provide Kibana dashboard to view log files</a>
 </td>
 </tr>
 </table>
@@ -1107,7 +1107,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect1">
-<h2 id="_obsidian_tools">6. Obsidian Tools</h2>
+<h2 id="_application_tooling">6. Application Tooling</h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_maven_plugin">6.1. Maven Plugin</h3>
@@ -1118,7 +1118,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<a href="https://github.com/tdiesler/obsidian/issues/24">[#24] Maven plugin for build, deploy, debug on OpenShift</a>
+<a href="https://github.com/tdiesler/openshift-playground/issues/24">[#24] Maven plugin for build, deploy, debug on OpenShift</a>
 </td>
 </tr>
 </table>
@@ -1129,7 +1129,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-19 13:03:01 CEST
+Last updated 2016-10-20 16:11:19 CEST
 </div>
 </div>
 </body>
