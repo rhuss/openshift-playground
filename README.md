@@ -11,5 +11,5 @@ The docs are generated using [Asciidoctor](http://asciidoctor.org/docs).
 To generate an update of the docs use:
 
 ```
-$ asciidoctor -D . docs/index.adoc 
+$ asciidoctor docs/index.adoc 
 ```
