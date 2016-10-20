@@ -34,4 +34,7 @@
 
     <name>Obsidian :: Quickstart :: WildFly</name>
 
+    <modules>
+      <module>war-camel-servlet</module>
+    </modules>
 </project>

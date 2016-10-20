@@ -37,7 +37,15 @@ The client tools are available https://10.2.2.2:8443/console/command-line[from t
 ==== Docker access 
 
 The docker deamon running in the Vagrant VM needs be exposed on the network. 
-Add these deamon options to the original OpenShift docker config.
+The easiest way to do this is to use the provided https://github.com/tdiesler/obsidian/blob/master/Vagrantfile[Vagrantfile,window=_blank].
+
+The provided Vagrantfile adds port forwarding, a few docker deamon options and restarts the docker deamon.
+
+```
+  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 8443, host: 8443
+  config.vm.network "forwarded_port", guest: 2375, host: 2375
+```
 
 ```
 [vagrant@localhost ~]$ sudo vi /etc/sysconfig/docker
@@ -45,30 +53,20 @@ Add these deamon options to the original OpenShift docker config.
 OPTIONS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"
 ```
 
-Then restart the docker deamon 
-
 ```
 [vagrant@localhost ~]$ sudo systemctl restart docker
 ```
 
-On you local machine, setup route to the Vagrant VM
+On you local machine, setup a route to the Vagrant VM
 
 ```
 $ sudo cat /etc/hosts
 10.2.2.2    origin
 ```
 
-and a few Docker related environment variables for the project maven build
+and export a few Docker related environment variables for maven builds.
 
 ```
 export DOCKER_HOST=tcp://origin:2375
 export DOCKER_IP=origin
-```
-
-Port forwarding must be enabled in the Vagrantfile.
-
-```
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 8443, host: 8443
-  config.vm.network "forwarded_port", guest: 2375, host: 2375
 ```

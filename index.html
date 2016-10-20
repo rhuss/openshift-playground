@@ -538,7 +538,17 @@ Last login: Mon Feb  8 09:06:26 2016 from 10.0.2.2</code></pre>
 <h4 id="_docker_access">1.1.2. Docker access</h4>
 <div class="paragraph">
 <p>The docker deamon running in the Vagrant VM needs be exposed on the network.
-Add these deamon options to the original OpenShift docker config.</p>
+The easiest way to do this is to use the provided <a href="https://github.com/tdiesler/obsidian/blob/master/Vagrantfile" target="_blank">Vagrantfile</a>.</p>
+</div>
+<div class="paragraph">
+<p>The provided Vagrantfile adds port forwarding, a few docker deamon options and restarts the docker deamon.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 8443, host: 8443
+  config.vm.network "forwarded_port", guest: 2375, host: 2375</code></pre>
+</div>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -547,16 +557,13 @@ Add these deamon options to the original OpenShift docker config.</p>
 OPTIONS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Then restart the docker deamon</p>
-</div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>[vagrant@localhost ~]$ sudo systemctl restart docker</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>On you local machine, setup route to the Vagrant VM</p>
+<p>On you local machine, setup a route to the Vagrant VM</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -565,22 +572,12 @@ OPTIONS="-H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock"</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>and a few Docker related environment variables for the project maven build</p>
+<p>and export a few Docker related environment variables for maven builds.</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code>export DOCKER_HOST=tcp://origin:2375
 export DOCKER_IP=origin</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Port forwarding must be enabled in the Vagrantfile.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code>  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 8443, host: 8443
-  config.vm.network "forwarded_port", guest: 2375, host: 2375</code></pre>
 </div>
 </div>
 </div>

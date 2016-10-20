@@ -1,0 +1,5 @@
+spec:
+  path: /war-camel-servlet
+  to:
+    kind: Service
+    name: war-camel-servlet
