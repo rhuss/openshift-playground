@@ -442,10 +442,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_runtimes">3. Runtimes</a>
 <ul class="sectlevel2">
 <li><a href="#_wildfly">3.1. WildFly</a></li>
-<li><a href="#_simple_wildfly_camel_war">3.2. Simple WildFly-Camel WAR</a></li>
-<li><a href="#_swarm">3.3. Swarm</a></li>
-<li><a href="#_vert_x">3.4. Vert.x</a></li>
-<li><a href="#_spring_boot">3.5. Spring Boot</a></li>
+<li><a href="#_swarm">3.2. Swarm</a></li>
+<li><a href="#_vert_x">3.3. Vert.x</a></li>
+<li><a href="#_spring_boot">3.4. Spring Boot</a></li>
 </ul>
 </li>
 <li><a href="#_openshift_howtos">4. OpenShift HOWTOs</a>
@@ -665,20 +664,84 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="_wildfly">3.1. WildFly</h3>
-
-</div>
-<div class="sect2">
-<h3 id="_simple_wildfly_camel_war">3.2. Simple WildFly-Camel WAR</h3>
+<div class="sect3">
+<h4 id="_simple_wildfly_camel_war">3.1.1. Simple WildFly-Camel WAR</h4>
 <div class="paragraph">
-<p>The <a href="https://github.com/tdiesler/openshift-playground/tree/master/quickstart/wildfly/war-camel-servlet">war-camel-servlet</a></p>
+<p>The <a href="https://github.com/tdiesler/openshift-playground/tree/master/quickstart/wildfly/war-camel-servlet">war-camel-servlet</a> guickstart
+demonstrates how you can use a Servlet to expose a http service in a Camel route.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="docs/images/camel-servlet-diagram.jpg" alt="900" width="600">
+<img src="images/war-camel-servlet-diagram.jpg" alt="900" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p>This quickstart is simple. It consits of two XML source files that define the Camel route</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;beans&gt;
+
+  &lt;camelContext xmlns="http://camel.apache.org/schema/spring"&gt;
+    &lt;route id="helloRoute"&gt;
+      &lt;!-- incoming requests from the servlet is routed --&gt;
+      &lt;from uri="servlet:///hello"/&gt;
+      &lt;choice&gt;
+        &lt;when&gt;
+          &lt;!-- is there a header with the key name? --&gt;
+          &lt;header&gt;name&lt;/header&gt;
+          &lt;!-- yes so return back a message to the user --&gt;
+          &lt;transform&gt;
+            &lt;simple&gt;Hello ${header.name} I am ${sysenv.HOSTNAME} how are you?&lt;/simple&gt;
+          &lt;/transform&gt;
+        &lt;/when&gt;
+        &lt;otherwise&gt;
+          &lt;!-- if no name parameter then output a syntax to the user --&gt;
+          &lt;transform&gt;
+            &lt;constant&gt;Add a name parameter to uri, eg ?name=foo&lt;/constant&gt;
+          &lt;/transform&gt;
+        &lt;/otherwise&gt;
+      &lt;/choice&gt;
+      &lt;!-- log what we are replying --&gt;
+      &lt;log message="Reply: ${body}}"/&gt;
+    &lt;/route&gt;
+  &lt;/camelContext&gt;
+
+&lt;/beans&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and some webapp metadata</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-xml" data-lang="xml">&lt;web-app&gt;
+
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;CamelServlet&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.apache.camel.component.servlet.CamelHttpTransportServlet&lt;/servlet-class&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+  &lt;/servlet&gt;
+
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;CamelServlet&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/camel/*&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+
+&lt;/web-app&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the build completes you should see someting like this in the OpenShift console</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/war-camel-servlet-pod.png" alt="900" width="600">
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generator_for_wildfly_applications">3.2.1. Generator for WildFly Applications</h4>
+<h4 id="_generator_for_wildfly_applications">3.1.2. Generator for WildFly Applications</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -694,9 +757,9 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect2">
-<h3 id="_swarm">3.3. Swarm</h3>
+<h3 id="_swarm">3.2. Swarm</h3>
 <div class="sect3">
-<h4 id="_generate_deploy_a_swarm_application">3.3.1. Generate &amp; Deploy a Swarm Application</h4>
+<h4 id="_generate_deploy_a_swarm_application">3.2.1. Generate &amp; Deploy a Swarm Application</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -711,7 +774,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generator_for_swarm_applications">3.3.2. Generator for Swarm Applications</h4>
+<h4 id="_generator_for_swarm_applications">3.2.2. Generator for Swarm Applications</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -727,9 +790,9 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect2">
-<h3 id="_vert_x">3.4. Vert.x</h3>
+<h3 id="_vert_x">3.3. Vert.x</h3>
 <div class="sect3">
-<h4 id="_generate_deploy_a_vert_x_application">3.4.1. Generate &amp; Deploy a Vert.x Application</h4>
+<h4 id="_generate_deploy_a_vert_x_application">3.3.1. Generate &amp; Deploy a Vert.x Application</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -744,7 +807,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generator_for_vert_x_applications">3.4.2. Generator for Vert.x Applications</h4>
+<h4 id="_generator_for_vert_x_applications">3.3.2. Generator for Vert.x Applications</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -760,9 +823,9 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect2">
-<h3 id="_spring_boot">3.5. Spring Boot</h3>
+<h3 id="_spring_boot">3.4. Spring Boot</h3>
 <div class="sect3">
-<h4 id="_supported_features">3.5.1. Supported Features</h4>
+<h4 id="_supported_features">3.4.1. Supported Features</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -777,7 +840,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 </div>
 <div class="sect3">
-<h4 id="_generate_deploy_a_spring_boot_application">3.5.2. Generate &amp; Deploy a Spring Boot Application</h4>
+<h4 id="_generate_deploy_a_spring_boot_application">3.4.2. Generate &amp; Deploy a Spring Boot Application</h4>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1127,7 +1190,7 @@ can be installed across multiple hosts. Following <a href="https://docs.openshif
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-20 17:02:32 CEST
+Last updated 2016-10-21 09:49:11 CEST
 </div>
 </div>
 </body>

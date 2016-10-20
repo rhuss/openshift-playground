@@ -1,6 +1,7 @@
 = User Guide
 :toc: left
 :icons: font
+:imagesdir: images
 :linkattrs:
 :sectnums:
 

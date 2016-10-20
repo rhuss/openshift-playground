@@ -1,9 +1,70 @@
 === WildFly
 
-==== Generate & Deploy a WildFly Application
+==== Simple WildFly-Camel WAR
 
-NOTE: https://github.com/tdiesler/openshift-playground/issues/1[[#1\] Generate and deploy WildFly standalone app]
+The https://github.com/tdiesler/openshift-playground/tree/master/quickstart/wildfly/war-camel-servlet[war-camel-servlet] guickstart 
+demonstrates how you can use a Servlet to expose a http service in a Camel route.
+ 
+image::war-camel-servlet-diagram.jpg[900, 600] 
 
+This quickstart is simple. It consits of two XML source files that define the Camel route 
+
+[source,xml]
+----
+<beans>
+
+  <camelContext xmlns="http://camel.apache.org/schema/spring">
+    <route id="helloRoute">
+      <!-- incoming requests from the servlet is routed -->
+      <from uri="servlet:///hello"/>
+      <choice>
+        <when>
+          <!-- is there a header with the key name? -->
+          <header>name</header>
+          <!-- yes so return back a message to the user -->
+          <transform>
+            <simple>Hello ${header.name} I am ${sysenv.HOSTNAME} how are you?</simple>
+          </transform>
+        </when>
+        <otherwise>
+          <!-- if no name parameter then output a syntax to the user -->
+          <transform>
+            <constant>Add a name parameter to uri, eg ?name=foo</constant>
+          </transform>
+        </otherwise>
+      </choice>
+      <!-- log what we are replying -->
+      <log message="Reply: ${body}}"/>
+    </route>
+  </camelContext>
+  
+</beans>
+----
+
+and some webapp metadata
+
+[source,xml]
+----
+<web-app>
+
+  <servlet>
+    <servlet-name>CamelServlet</servlet-name>
+    <servlet-class>org.apache.camel.component.servlet.CamelHttpTransportServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CamelServlet</servlet-name>
+    <url-pattern>/camel/*</url-pattern>
+  </servlet-mapping>
+
+</web-app>
+---- 
+
+When the build completes you should see someting like this in the OpenShift console
+
+image::war-camel-servlet-pod.png[900, 600] 
+ 
 ==== Generator for WildFly Applications
 
 NOTE: https://github.com/tdiesler/openshift-playground/issues/11[[#11\] Web based project generator for WildFly]

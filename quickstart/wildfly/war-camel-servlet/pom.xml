@@ -71,6 +71,8 @@
                                     </build>
                                 </image>
                             </images>
+                            <!-- service defined in fabric8/service.yml -->
+                            <!-- route defined in fabric8/route.yml -->
                         </configuration>
                     </execution>
                 </executions>
