@@ -32,15 +32,12 @@
     <name>Quickstart :: WildFly :: War :: Camel Servlet</name>
     <description>Camel route using Servlet deployed as WAR</description>
 
-
     <!-- Properties -->
     <properties>
         <docker.image.name>${namespace}/${project.artifactId}:${project.version}</docker.image.name>
     </properties>
-    
-    <dependencies>
-    </dependencies>
 
+    <!-- Build -->    
     <build>
         <!-- remove the version from the war artefact -->
         <finalName>${project.artifactId}</finalName>
@@ -63,7 +60,7 @@
                                 <image>
                                     <name>${docker.image.name}</name>
                                     <build>
-                                        <from>wildflyext/wildfly-camel</from>
+                                        <from>wildflyext/wildfly-camel:${version.wildfly.camel}</from>
                                         <assembly>
                                             <basedir>/opt/jboss/wildfly/standalone/deployments</basedir>
                                             <descriptorRef>artifact</descriptorRef>

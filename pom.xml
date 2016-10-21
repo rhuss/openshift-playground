@@ -45,6 +45,8 @@
     <!-- Properties -->
     <properties>
         
+        <version.wildfly.camel>4.3.0</version.wildfly.camel>
+        
         <!-- Plugin versions -->
         <version-fabric8-maven-plugin>3.1.75</version-fabric8-maven-plugin>
         <version-maven-antrun-plugin>1.8</version-maven-antrun-plugin>
