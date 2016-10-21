@@ -34,10 +34,13 @@
 
     <!-- Properties -->
     <properties>
-        <docker.image.name>${namespace}/${project.artifactId}:${project.version}</docker.image.name>
+        <!-- Don't use properties with 'docker.' or 'fabric8.' prefix since they can
+             clash with properties used by f-m-p and d-m-p (which is included in f-m-p and
+             sometimes shines through) -->
+        <image.name>${namespace}/${project.artifactId}:${project.version}</image.name>
     </properties>
 
-    <!-- Build -->    
+    <!-- Build -->
     <build>
         <!-- remove the version from the war artefact -->
         <finalName>${project.artifactId}</finalName>
@@ -45,6 +48,47 @@
             <plugin>
                 <groupId>io.fabric8</groupId>
                 <artifactId>fabric8-maven-plugin</artifactId>
+                <version>3.1.79</version>
+                <configuration>
+                    <!-- Although a strategy "Docker" is used here, there are still
+                         issues with the base image, since there are some OpenShift specific
+                         permission requirements which need to be met.
+                         See https://docs.openshift.com/enterprise/3.2/creating_images/guidelines.html#openshift-enterprise-specific-guidelines
+                         for details -->
+                    <buildStrategy>docker</buildStrategy>
+                    <images>
+                        <image>
+                            <name>${image.name}</name>
+                            <build>
+                                <from>wildflyext/wildfly-camel:${version.wildfly.camel}</from>
+                                <assembly>
+                                    <basedir>/opt/jboss/wildfly/standalone/deployments</basedir>
+                                    <descriptorRef>artifact</descriptorRef>
+                                </assembly>
+                            </build>
+                        </image>
+                    </images>
+
+                    <resources>
+                        <!-- Services can be specified directly within the XML files.
+                             That's currently not possible for ingress/routes object but
+                             would makes sense, too -->
+                        <services>
+                            <service>
+                                <name>http</name>
+                                <ports>
+                                    <port>
+                                        <protocol>tcp</protocol>
+                                        <port>80</port>
+                                        <targetPort>8080</targetPort>
+                                    </port>
+                                </ports>
+                            </service>
+                        </services>
+                    </resources>
+
+                    <!-- route defined in fabric8/route.yml -->
+                </configuration>
                 <executions>
                     <execution>
                         <id>build-docker-image</id>
@@ -52,28 +96,56 @@
                         <goals>
                             <goal>resource</goal>
                             <goal>build</goal>
-                            <goal>deploy</goal>
+                            <goal>apply</goal>
                         </goals>
-                        <configuration>
-                            <buildStrategy>docker</buildStrategy>
-                            <images>
-                                <image>
-                                    <name>${docker.image.name}</name>
-                                    <build>
-                                        <from>wildflyext/wildfly-camel:${version.wildfly.camel}</from>
-                                        <assembly>
-                                            <basedir>/opt/jboss/wildfly/standalone/deployments</basedir>
-                                            <descriptorRef>artifact</descriptorRef>
-                                        </assembly>
-                                    </build>
-                                </image>
-                            </images>
-                            <!-- service defined in fabric8/service.yml -->
-                            <!-- route defined in fabric8/route.yml -->
-                        </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <!-- Doesn't currently work because the base image configured above has some
+             Camel magic baked in. But its a good show case for how to use generators (which
+             already know which ports to expose). Writing custom Generators and Enrichers is not
+             difficult (like for the mixed wildfly-camel image)-->
+        <profile>
+            <id>minimal</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>fabric8-maven-plugin</artifactId>
+                        <version>3.1.79</version>
+                        <configuration  combine.self="override">
+                            <buildStrategy>docker</buildStrategy>
+                            <!-- The generator configuration could be omitted if some
+                                 wildfly specific information could be detected in the pom.xml
+                                 like the usage of a wildfly plugin or the existance of a
+                                 wildfly specific deployment descriptor in the source. Or you
+                                 nail it down like here -->
+                            <generator>
+                                <config>
+                                    <webapp>
+                                        <server>wildfly</server>
+                                    </webapp>
+                                </config>
+                            </generator>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>build-docker-image</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>resource</goal>
+                                    <goal>build</goal>
+                                    <goal>apply</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
